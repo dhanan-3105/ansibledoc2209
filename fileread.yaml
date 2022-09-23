@@ -1,0 +1,15 @@
+
+---
+- name: read file on host
+  hosts: all
+  remote_user: ubuntu
+  vars:
+   contents: " "
+  tasks:
+   - name: Read the file
+     command: cat /home/ubuntu/.ssh/authorized_keys
+     register: contents
+
+   - name: print file
+     ansible.builtin.debug:
+      msg: "the content of file is {{ contents }}"
