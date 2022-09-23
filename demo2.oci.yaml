@@ -1,0 +1,12 @@
+plugin: oracle.oci.oci
+
+regions:
+ - us-ashburn-1
+
+compartments:
+ - compartment_ocid: "ocid1.compartment.oc1..aaaaaaaato3f4p57z5o7wfnsknoujteysazgqw6uhc6vt3wl6v6iz74uihba"
+   fetch_hosts_from_subcompartments: false
+
+filters:
+ - lifecycle_state: "RUNNING"
+ - display_name: "ubuntu"
