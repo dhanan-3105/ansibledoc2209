@@ -1,0 +1,15 @@
+- hosts: all
+  remote_user: opc
+  tasks:
+  - name : install http
+    yum: name=httpd state=latest
+    become: true
+  - name: start and enable httpd
+    service: name=httpd state=restarted enabled=yes
+    become: true
+  - name : test httpd
+    command: curl localhost
+    # {{ansible_hostname}}
+  handlers:
+  - name: restart apache
+    service: name=httpd state=restarted
